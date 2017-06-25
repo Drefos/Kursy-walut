@@ -1,0 +1,31 @@
+package app;
+
+import controller.MainController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application{
+    static final String APP_NAME = "Kursy walut v1.0";
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent parent = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.setTitle(APP_NAME);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void stop() throws Exception {
+        MainController.stop();
+        super.stop();
+    }
+}
